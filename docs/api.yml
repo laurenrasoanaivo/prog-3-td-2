@@ -1,0 +1,432 @@
+openapi: 3.0.0
+servers:
+  - url: https://virtserver.swaggerhub.com/hei-ryan/PROG3_TD2/1.0.0
+info:
+  version: "latest"
+  title: PROG3 - TD2
+paths:
+  /sponsor:
+    get:
+      tags:
+        - Sponsors
+      summary: get all sponsors
+      operationId: getSponsors
+      responses:
+        '200':
+          description: List of Sponsors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sponsor'
+        '500':
+          description: Internal server error
+    post:
+      tags:
+        - Sponsors
+      summary: create new sponsors
+      operationId: createSponsors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateSponsor'
+      responses:
+        '200':
+          description: List of created Sponsors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sponsor'
+        '500':
+          description: Internal server error
+    put:
+      tags:
+        - Sponsors
+      summary: update some sponsors
+      operationId: updateSponsors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Sponsor'
+      responses:
+        '200':
+          description: List of updated sponsors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Sponsor'
+        '500':
+          description: Internal server error   
+  /sponsors/{id}:
+    delete:
+      tags:
+        - Sponsors
+      summary: delete a specific sponsor
+      operationId: deleteSponsor
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Return the deleted sponsor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sponsor'
+        '500':
+          description: Internal server error           
+  /players:
+    get:
+      tags:
+        - Players
+      summary: get all players
+      operationId: getPlayers
+      responses:
+        '200':
+          description: List of players
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '500':
+          description: Internal server error
+    post:
+      tags:
+        - Players
+      summary: create new players
+      operationId: createPlayers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreatePlayer'
+      responses:
+        '200':
+          description: List of created players
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '500':
+          description: Internal server error 
+    put:
+      tags:
+        - Players
+      summary: update some players
+      operationId: updatePlayers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdatePlayer'
+      responses:
+        '200':
+          description: List of updated players
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Player'
+        '500':
+          description: Internal server error   
+  /players/{id}:
+    delete:
+      tags:
+        - Players
+      summary: delete a specific player
+      operationId: deleteSponsor
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Return the deleted player
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Player'
+        '500':
+          description: Internal server error               
+  /teams:
+    get:
+      tags:
+        - Teams
+      summary: get all teams
+      operationId: getTeams
+      responses:
+        '200':
+          description: List of teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '500':
+          description: Internal server error
+    post:
+      tags:
+        - Teams
+      summary: create new teams
+      operationId: createTeams
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateTeam'
+      responses:
+        '200':
+          description: List of created Teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '500':
+          description: Internal server error
+    put:
+      tags:
+        - Teams
+      summary: update some teams
+      operationId: updateSponsors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateTeam'
+      responses:
+        '200':
+          description: List of updated teams
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Team'
+        '500':
+          description: Internal server error
+  /teams/{id}:
+    delete:
+      tags:
+        - Teams
+      summary: delete a specific team
+      operationId: deleteTeam
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Return the deleted team
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Team'
+        '500':
+          description: Internal server error    
+  /match:
+    get:
+      tags:
+        - Play Against
+      summary: get all play against
+      operationId: getPlayAgainst
+      responses:
+        '200':
+          description: List of play against
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayAgainst'
+        '500':
+          description: Internal server error
+    post:
+      tags:
+        - Play Against
+      summary: create new play against
+      operationId: createPlayAgainst
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreatePlayAgainst'
+      responses:
+        '200':
+          description: List of created play against
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayAgainst'
+        '500':
+          description: Internal server error
+    put:
+      tags:
+        - Play Against
+      summary: update some play against
+      operationId: updatePlayAgainst
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdatePlayAgainst'
+      responses:
+        '200':
+          description: List of updated play against
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PlayAgainst'
+        '500':
+          description: Internal server error
+  /match/{id}:
+    delete:
+      tags:
+        - Play Against
+      summary: delete a specific play against
+      operationId: deletePlayAgainst
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Return the deleted play against
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayAgainst'
+        '500':
+          description: Internal server error              
+components:
+  schemas:
+    Sponsor:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/CreateSponsor'
+      properties:
+        id:
+          type: integer
+    CreateSponsor:
+      type: object
+      properties:
+        name:
+          type: string
+    Player:
+      type: object
+      properties:
+        id: 
+          type: integer
+        name:
+          type: string
+    UpdatePlayer:
+      allOf:
+        - $ref: '#/components/schemas/CreatePlayer'
+      properties:
+        number:
+          type: integer
+        id:
+          type: integer  
+    CreatePlayer:
+      type: object
+      properties:
+        name:
+          type: string
+        number:
+          type: integer
+    Team:
+      type: object
+      properties:
+        id:
+          type: integer
+      allOf:
+        - $ref: '#/components/schemas/CreateTeam'    
+    CreateTeam:
+      type: object
+      properties:
+        name:
+          type: string
+        players:
+          allOf:
+            - $ref: '#/components/schemas/Player'
+        sponsors:
+          allOf:
+            - $ref: '#/components/schemas/Sponsor'  
+    UpdateTeam:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Team'   
+    PlayAgainst:
+      type: object
+      properties:
+        id:
+          type: integer
+        team1:
+          allOf:
+            -  $ref: '#/components/schemas/Team' 
+        team2:
+          allOf:
+            -  $ref: '#/components/schemas/Team'       
+        dateTime:
+          type: string
+    UpdatePlayAgainst:
+      type: object  
+      properties:
+        id:
+          type: integer
+      allOf:
+        - $ref: '#/components/schemas/CreatePlayAgainst'        
+    CreatePlayAgainst:
+      type: object
+      properties:
+        id_team1:
+          type: integer
+        id_team2:
+          type: integer
+        dateTime:
+          type: string
+        stadium:
+          type: string
