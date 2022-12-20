@@ -20,6 +20,7 @@ public class TeamEntity {
     private int id;
     private String name;
     @OneToMany
+    @OrderBy("number")
     @JoinTable(
             name = "team_player",
             joinColumns = @JoinColumn(name = "id_team"),

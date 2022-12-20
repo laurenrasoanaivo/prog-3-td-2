@@ -18,9 +18,9 @@ public class PlayAgainst {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @OneToOne
+    @ManyToOne
     private TeamEntity team1;
-    @OneToOne
+    @ManyToOne
     private TeamEntity team2;
     private LocalDateTime dateTime;
     private String stadium;

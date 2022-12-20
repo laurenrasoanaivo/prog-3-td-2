@@ -11,12 +11,13 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class PlayAgainstRestMapper {
     private final TeamService teamService;
+    private TeamRestMapper mapper;
 
     public PlayAgainstResponse toRest(PlayAgainst domain) {
         return PlayAgainstResponse.builder()
                 .id(domain.getId())
-                .team1(domain.getTeam1())
-                .team2(domain.getTeam2())
+                .team1(mapper.toRest(domain.getTeam1()))
+                .team2(mapper.toRest(domain.getTeam2()))
                 .dateTime(domain.getDateTime())
                 .build();
     }
