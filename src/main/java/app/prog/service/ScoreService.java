@@ -1,5 +1,6 @@
 package app.prog.service;
 
+import app.prog.model.MatchEntity;
 import app.prog.model.ScoreEntity;
 import app.prog.repository.ScoreRepository;
 import lombok.AllArgsConstructor;
@@ -12,6 +13,10 @@ import java.util.Objects;
 @AllArgsConstructor
 public class ScoreService {
     private final ScoreRepository scoreRepository;
+
+    public List<ScoreEntity> getByMatch(MatchEntity match){
+        return scoreRepository.findByMatch(match);
+    }
 
     public List<ScoreEntity> getAllScores(){
         List<ScoreEntity> scores = scoreRepository.findAll();

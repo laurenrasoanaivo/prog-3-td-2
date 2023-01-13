@@ -6,7 +6,6 @@ import app.prog.repository.MatchRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,18 +18,9 @@ public class MatchService {
         return repository.findAll();
     }
 
-    public List<ScoreEntity> scores(MatchEntity match){
-        List<ScoreEntity> scores = scoreService.getAllScores();
-        List<ScoreEntity> matchScore = new ArrayList<>();
-        for (ScoreEntity score : scores) {
-            if (score.getMatch() == match)
-                matchScore.add(score);
-        }
-        return matchScore;
-    }
 
     public int scoreTeamA(MatchEntity match){
-        List<ScoreEntity> scores = scores(match);
+        List<ScoreEntity> scores = scoreService.getByMatch(match);
         int scoreTeamA = 0;
         for (ScoreEntity score : scores) {
             if (score.getPlayer().getTeam() == match.getTeamA() && score.getIsOS()) {
@@ -44,7 +34,7 @@ public class MatchService {
     }
 
     public int scoreTeamB(MatchEntity match){
-        List<ScoreEntity> scores = scores(match);
+        List<ScoreEntity> scores = scoreService.getByMatch(match);
         int scoreTeamB = 0;
         for (ScoreEntity score : scores) {
             if (score.getPlayer().getTeam() == match.getTeamA() && !score.getIsOS()) {
