@@ -6,14 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-public class PlayAgainstResponse {
+public class MatchResponse {
     private int id;
-    private TeamResponse team1;
-    private TeamResponse team2;
+    private TeamResponse teamA;
+    private TeamResponse teamB;
     private LocalDateTime dateTime;
+    private List<ScoreResponse> scores;
+    private int scoreTeamA;
+    private int scoreTeamB;
 }

@@ -17,13 +17,4 @@ public class SponsorController {
         return service.getCategories();
     }
 
-    @PostMapping("/sponsors")
-    public List<SponsorEntity> createSponsors(@RequestBody List<SponsorEntity> toCreate) {
-        return service.createCategories(toCreate);
-    }
-
-    @DeleteMapping("/sponsors/{id}")
-    public SponsorEntity deleteSponsor(@PathVariable int id) {
-        return service.deleteCategory(id);
-    }
 }

@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -17,27 +16,4 @@ public class TeamService {
         return repository.findAll();
     }
 
-    public List<TeamEntity> createTeams(List<TeamEntity> toCreate) { return repository.saveAll(toCreate); }
-
-    public List<TeamEntity> updateTeams(List<TeamEntity> toUpdate) { return repository.saveAll(toUpdate); }
-
-    public TeamEntity getById(int id){
-        Optional<TeamEntity> optional = repository.findById(id);
-        if (optional.isPresent()) {
-            repository.delete(optional.get());
-            return optional.get();
-        } else {
-            throw new RuntimeException("TeamEntity." + id + " not found");
-        }
-    }
-
-    public TeamEntity deleteTeam(Integer id) {
-        Optional<TeamEntity> optional = repository.findById(id);
-        if (optional.isPresent()) {
-            repository.delete(optional.get());
-            return optional.get();
-        } else {
-            throw new RuntimeException("BookEntity." + id + " not found");
-        }
-    }
 }
